@@ -1,4 +1,4 @@
-import 'package:expense_tracker/01-models/expense.dart';
+import 'package:expense_tracker/01_models/expense.dart';
 import 'package:expense_tracker/03_enums/category_type.dart';
 
 List<Expense> listExpenseHelpers = [
