@@ -14,9 +14,15 @@ class MainExpense extends StatefulWidget {
 class _MainExpenseState extends State<MainExpense> {
   final List<Expense> listExpense = listExpenseHelpers;
 
-  void addNewExpense(Expense expense) {
+  void _addNewExpense(Expense expense) {
     setState(() {
       listExpense.add(expense);
+    });
+  }
+
+  void _onRemoveExpense(Expense expense) {
+    setState(() {
+      listExpense.remove(expense);
     });
   }
 
@@ -26,7 +32,7 @@ class _MainExpenseState extends State<MainExpense> {
       showModalBottomSheet(
         isScrollControlled: true,
         context: context,
-        builder: (ctx) => NewExpense(addNewExpense: addNewExpense),
+        builder: (ctx) => NewExpense(addNewExpense: _addNewExpense),
       );
     }
 
@@ -40,7 +46,10 @@ class _MainExpenseState extends State<MainExpense> {
           ),
         ],
       ),
-      body: BodyMainExpense(list: listExpense),
+      body: BodyMainExpense(
+        list: listExpense,
+        onRemoveExpense: _onRemoveExpense,
+      ),
     );
   }
 }

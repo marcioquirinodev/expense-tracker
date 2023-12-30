@@ -52,16 +52,17 @@ class _NewExpenseState extends State<NewExpense> {
           ],
         ),
       );
+    } else {
+      Expense newExpense = Expense(
+          title: _titleController.text,
+          amount: tryConvertAmount!,
+          category: selectedCategory!,
+          date: date!);
+      setState(() {
+        widget.addNewExpense(newExpense);
+        Navigator.pop(context);
+      });
     }
-    Expense newExpense = Expense(
-        title: _titleController.text,
-        amount: tryConvertAmount!,
-        category: selectedCategory!,
-        date: date!);
-    setState(() {
-      widget.addNewExpense(newExpense);
-      Navigator.pop(context);
-    });
   }
 
   @override
