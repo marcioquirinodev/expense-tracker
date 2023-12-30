@@ -1,13 +1,11 @@
 import 'package:expense_tracker/01_models/expense.dart';
-import 'package:expense_tracker/02_helpers/list_expense_helpers.dart';
 import 'package:expense_tracker/04_widgets/card_expense.dart';
 import 'package:flutter/material.dart';
 
 class ListViewExpense extends StatelessWidget {
-  ListViewExpense({super.key});
+  const ListViewExpense({super.key, required this.listExpense});
 
-  final List<Expense> listExpense = listExpenseHelpers;
-
+  final List<Expense> listExpense;
   @override
   Widget build(BuildContext context) {
     return Expanded(
