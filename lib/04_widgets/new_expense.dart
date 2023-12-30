@@ -55,7 +55,7 @@ class _NewExpenseState extends State<NewExpense> {
     } else {
       Expense newExpense = Expense(
           title: _titleController.text,
-          amount: tryConvertAmount!,
+          amount: tryConvertAmount,
           category: selectedCategory!,
           date: date!);
       setState(() {

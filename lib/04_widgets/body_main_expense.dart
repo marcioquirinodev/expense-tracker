@@ -10,11 +10,18 @@ class BodyMainExpense extends StatelessWidget {
   final void Function(Expense expense) onRemoveExpense;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const Text('Chart'),
-        ListViewExpense(listExpense: list, removeExpense: onRemoveExpense),
-      ],
+    Widget mainContent = const Center(
+      child: Text('No registered expenses!'),
     );
+
+    if (list.isNotEmpty) {
+      mainContent = Column(
+        children: [
+          const Text('Chart'),
+          ListViewExpense(listExpense: list, removeExpense: onRemoveExpense),
+        ],
+      );
+    }
+    return mainContent;
   }
 }
